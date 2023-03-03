@@ -17,8 +17,6 @@ function getComputerChoice () { //function for random computer choice
 }
 
 function playRound (playerChoice, computerChoice) {
-    
-    let winnerMessage = ''; //declare the winning message variable
 
     if (playerChoice === computerChoice) {  //if else for all possible outcomes
         return 'draw';
@@ -30,11 +28,11 @@ function playRound (playerChoice, computerChoice) {
         return 'lose';
 
     } else {
-        winnerMessage = 'Something is not right..'; // avoiding infinite loops
+        return false;
     }
 }
 
-function game() { //don't hard code five rounds? Use function game(numRounds)
+function playGame() { //don't hard code five rounds? Use function game(numRounds)
     let wins = 0;
     let losses = 0;
     let draws = 0;
@@ -70,7 +68,7 @@ function game() { //don't hard code five rounds? Use function game(numRounds)
     if (wins >= losses) {
         console.log(`CONGRATULATIONS, you won ${wins} out of five games and are victorious!`);
     } else if (losses > wins) {
-        console.log(`OH NO, you lost ${losses} out of five games and are, unfortunately a bit of a loser. Rematch?`);
+        console.log(`OH NO, you lost ${losses} (and ${draws} where draw) out of five games and are, unfortunately a bit of a loser. Rematch?`);
     } else {
         console.log('Well how about that, a tie. What an anticlimax. Rematch maybe?');
     } 

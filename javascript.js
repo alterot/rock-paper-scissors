@@ -1,6 +1,30 @@
 //Rock, paper scissor game. Only for console. In future also add fail safe for player input. 
 //(Like cancel function if !specific string?)
 
+const buttons = document.querySelectorAll('button');
+const displayResult = document.getElementById('result');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        const playerChoice = button.id.toUpperCase();
+        const computerChoice = getComputerChoice();
+        const result = playRound (playerChoice, computerChoice);
+        
+        console.log(playerChoice);
+        console.log(computerChoice);
+        console.log(result);
+
+        displayResult.textContent = result;   
+
+    });
+});
+
+
+
+
+
+
 function getComputerChoice () { //function for random computer choice
     const randomNumber = Math.ceil(Math.random() * 3);
     
@@ -39,8 +63,8 @@ function playGame() { //don't hard code five rounds? Use function game(numRounds
 
     for (let i = 0; i < 5; i++) {
         //prompt for player choice, toUpperCase for string comparison
-        const computerChoice = getComputerChoice();
-        const playerChoice = prompt('Rock, Paper och Scissors?', 'rock').toUpperCase(); 
+        //const computerChoice = getComputerChoice();
+        //const playerChoice = prompt('Rock, Paper och Scissors?', 'rock').toUpperCase(); 
 
         //log player and computer messages for error check
         console.log(`You chose ${playerChoice}.`); 
@@ -65,7 +89,7 @@ function playGame() { //don't hard code five rounds? Use function game(numRounds
     console.log(`Number of draws: ${draws}`);    
 
     //print winner
-    if (wins >= losses) {
+    if (wins > losses) {
         console.log(`CONGRATULATIONS, you won ${wins} out of five games and are victorious!`);
     } else if (losses > wins) {
         console.log(`OH NO, you lost ${losses} (and ${draws} where draw) out of five games and are, unfortunately a bit of a loser. Rematch?`);

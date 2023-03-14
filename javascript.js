@@ -1,7 +1,7 @@
 //Rock, paper scissor game. Only for console. In future also add fail safe for player input. 
 //(Like cancel function if !specific string?)
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.button');
 const displayResult = document.getElementById('result');
 const displayWins = document.getElementById('wins');
 const displayLosses = document.getElementById('losses');
@@ -50,7 +50,7 @@ buttons.forEach(button => {
         } 
         if (wins === 5 || losses === 5) {
             displayResult.style.cssText = 'border: 2px dashed red; background-color: pink; padding: 10px;';
-            document.getElementById("selection").style.display = "none"; //HIDES BUTTONS - ADD NEW with a "reset" function!!!
+            document.getElementById("options").style.display = "none"; 
         }
 
     });
@@ -101,6 +101,6 @@ function reset () {
     displayRounds.textContent = rounds;
 
     displayResult.style.cssText = '';
-    document.getElementById("selection").style.display = "block";
+    document.getElementById("options").style.cssText = "";
 
 };

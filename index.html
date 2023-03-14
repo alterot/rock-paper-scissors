@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div id="selection">
-        <button id="rock">ROCK</button>
-        <button id ="paper">PAPER</button>
-        <button id="scissors">SCISSORS</button>
+    <div id ="options">
+        <button class="button" id="rock">ROCK</button>
+        <button class="button" id="paper">PAPER</button>
+        <button class="button" id="scissors">SCISSORS</button>
     </div>
     <div id="outcome">
         <p id="result">Well did you win?</p>
@@ -20,8 +21,10 @@
         <p>Wins: <span id="wins"></span></p>
         <p>Losses: <span id="losses"></span></p>
         <p>Draw: <span id="draws"></span></p>
+        
     </div>
     <button id="reset">Reset</button>
+    
     
 </body>
 </html>

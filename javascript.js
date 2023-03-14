@@ -3,6 +3,15 @@
 
 const buttons = document.querySelectorAll('button');
 const displayResult = document.getElementById('result');
+const displayWins = document.getElementById('wins');
+const displayLosses = document.getElementById('losses');
+const displayDraws = document.getElementById('draws');
+const displayRounds = document.getElementById('rounds');
+
+let rounds = 0;
+let wins = 0;
+let losses = 0;
+let draws = 0;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -10,18 +19,24 @@ buttons.forEach(button => {
         const playerChoice = button.id.toUpperCase();
         const computerChoice = getComputerChoice();
         const result = playRound (playerChoice, computerChoice);
-        
-        console.log(playerChoice);
-        console.log(computerChoice);
-        console.log(result);
+
+        rounds ++;
+        if (result === 'draw') {
+            draws ++;
+        } else if (result === 'win') {
+            wins ++;
+        } else {
+            losses ++;
+        }
 
         displayResult.textContent = result;   
+        displayWins.textContent = wins;
+        displayLosses.textContent = losses;
+        displayDraws.textContent = draws;
+        displayRounds.textContent = rounds;
 
     });
 });
-
-
-
 
 
 
@@ -56,7 +71,7 @@ function playRound (playerChoice, computerChoice) {
     }
 }
 
-function playGame() { //don't hard code five rounds? Use function game(numRounds)
+function playGame() { //CURRENTLY NOT USED!
     let wins = 0;
     let losses = 0;
     let draws = 0;
